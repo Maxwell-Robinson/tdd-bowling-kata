@@ -30,3 +30,12 @@ test('scores a single strike frame', function(t) {
   t.equals(score, 17)
   t.end()
 })
+
+test('scores a double strike frame', function(t) {
+  var frame = [10, 0]
+  var nextFrame = [10, 0]
+  var thirdFrame = [5, 2]
+  var score = game.scoreFrame(frame, nextFrame, thirdFrame)
+  t.equals (score, 25)
+  t.end()
+})
