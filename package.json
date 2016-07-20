@@ -4,7 +4,7 @@
   "description": "Hudson and Max's bowling kata",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/**/*.js"
+    "test": "tape tests/**/*.js | tap-spec"
   },
   "author": "",
   "license": "MIT",
