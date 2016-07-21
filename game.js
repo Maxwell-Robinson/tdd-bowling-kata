@@ -1,10 +1,8 @@
 function scoreFrame (frame, nextFrame, thirdFrame) {
-
-  if (isStrike(frame)) {
+  if (isStrike( frame )) {
     return scoreStrike(frame, nextFrame, thirdFrame)
   }
-
-  if (isSpare(frame)) {
+  if (isSpare( frame )) {
     return scoreSpare(frame, nextFrame)
   }
   return frame[0] + frame[1]
@@ -18,11 +16,11 @@ function scoreGame ( frames ) {
   return totalScore
 }
 
-function isStrike(frame){
+function isStrike( frame ){
   return (frame[0] == 10)
 }
 
-function scoreStrike(frame, nextFrame, thirdFrame) {
+function scoreStrike( frame, nextFrame, thirdFrame ) {
   var score = frame[0] + nextFrame[0]
 
   if (nextFrame[0] == 10 && thirdFrame){
@@ -33,11 +31,11 @@ function scoreStrike(frame, nextFrame, thirdFrame) {
   return score
 }
 
-function isSpare(frame){
+function isSpare( frame ){
     return frame[0] + frame[1] == 10
 }
 
-function scoreSpare(frame, nextFrame) {
+function scoreSpare( frame, nextFrame ) {
   return frame[0] + frame[1] + nextFrame[0]
 }
 
