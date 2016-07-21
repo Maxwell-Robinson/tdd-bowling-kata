@@ -67,4 +67,18 @@ test('checks to see if Spare', function(t) {
   t.end()
 })
 
+test('scores a spare in the 10th frame', function(t) {
+  var frames = [[2, 4], [4, 6], [10, 0], [10, 0], [7, 2], [1, 9], [2, 2], [8, 0], [0, 4], [7, 3, 5]]
+  var score = game.scoreGame(frames)
+  t.equals(score, 124)
+  t.end()
+})
+
+test('scores a double strike in the 9th frame', function(t) {
+  var frames = [[2, 4], [4, 6], [10, 0], [10, 0], [7, 2], [1, 9], [2, 2], [8, 0], [10, 0], [10, 3, 5]]
+  var score = game.scoreGame(frames)
+  t.equals(score, 146)
+  t.end()
+})
+
 

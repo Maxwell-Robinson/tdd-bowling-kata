@@ -10,14 +10,12 @@ function scoreFrame (frame, nextFrame, thirdFrame) {
   return frame[0] + frame[1]
 }
 
-
-
-
 function scoreGame ( frames ) {
   var totalScore = 0
-  for (var i = 0; i < frames.length; i++) {
+  for (var i = 0; i < frames.length-1; i++) {
     totalScore += scoreFrame(frames[i], frames[i+1], frames[i+2])
-  } return totalScore
+  } totalScore += scoreTenth( frames[9] )
+  return totalScore
 }
 
 function isStrike(frame){
@@ -28,7 +26,11 @@ function scoreStrike(frame, nextFrame, thirdFrame) {
   var score = frame[0] + nextFrame[0]
 
   if (nextFrame[0] == 10){
-    score += thirdFrame[0]
+    if(thirdFrame) {
+      score += thirdFrame[0]
+    } else {
+      score += nextFrame[1]
+    }
   }
   else {
     score += nextFrame[1]
@@ -43,6 +45,15 @@ function isSpare(frame){
 function scoreSpare(frame, nextFrame){
   return frame[0] + frame[1] + nextFrame[0]
 }
+
+function scoreTenth ( frame ) {
+  if (frame.length == 3) {
+    return frame[0] + frame[1] + frame[2]
+  } else {
+    return frame[0] + frame[1]
+  }
+}
+
 module.exports = {
 
   scoreFrame: scoreFrame,
