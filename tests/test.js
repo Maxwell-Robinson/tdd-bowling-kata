@@ -46,3 +46,13 @@ test('scores a game', function(t) {
   t.equals(score, 117)
   t.end()
 })
+
+test('checks to see if strike', function(t) {
+  var frame = [10, 0]
+  var isStrike = game.isStrike(frame)
+  t.equals(isStrike, true)
+  var frame1 = [5, 0]
+  var isStrike1 = game.isStrike(frame1)
+  t.equals(isStrike1, false, 'checks false positive')
+  t.end()
+})

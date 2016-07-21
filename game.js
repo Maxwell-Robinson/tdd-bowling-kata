@@ -3,12 +3,18 @@ function scoreFrame (frame, nextFrame, thirdFrame) {
 
   if (frame[0] == 10){
     score += nextFrame[0]
+
     if (nextFrame[0] == 10){
       score += thirdFrame[0]
-    } else {
+    }
+
+    else {
       score += nextFrame[1]
     }
+
   }
+
+
   else if (frame[0] + frame[1] == 10){
     score += frame [1] + nextFrame[0]
   }
@@ -25,9 +31,15 @@ function scoreGame ( frames ) {
   } return totalScore
 }
 
+function isStrike(frame){
+  return (frame[0] == 10)
+}
+
+
 module.exports = {
 
   scoreFrame: scoreFrame,
-  scoreGame: scoreGame
+  scoreGame: scoreGame,
+  isStrike: isStrike
 
 }
