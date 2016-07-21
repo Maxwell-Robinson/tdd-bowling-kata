@@ -1,18 +1,17 @@
 function scoreFrame (frame, nextFrame, thirdFrame) {
-  var score = frame[0]
 
   if (isStrike(frame)) {
     return scoreStrike(frame, nextFrame, thirdFrame)
   }
 
-  else if (frame[0] + frame[1] == 10){
-    score += frame [1] + nextFrame[0]
+  if (isSpare(frame)) {
+    return scoreSpare(frame, nextFrame)
   }
-  else{
-    score += frame[1]
-  }
-  return score
+  return frame[0] + frame[1]
 }
+
+
+
 
 function scoreGame ( frames ) {
   var totalScore = 0
@@ -41,6 +40,9 @@ function isSpare(frame){
     return frame[0] + frame[1] == 10
 }
 
+function scoreSpare(frame, nextFrame){
+  return frame[0] + frame[1] + nextFrame[0]
+}
 module.exports = {
 
   scoreFrame: scoreFrame,
