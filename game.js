@@ -25,14 +25,9 @@ function isStrike(frame){
 function scoreStrike(frame, nextFrame, thirdFrame) {
   var score = frame[0] + nextFrame[0]
 
-  if (nextFrame[0] == 10){
-    if(thirdFrame) {
-      score += thirdFrame[0]
-    } else {
-      score += nextFrame[1]
-    }
-  }
-  else {
+  if (nextFrame[0] == 10 && thirdFrame){
+    score += thirdFrame[0]
+  } else {
     score += nextFrame[1]
   }
   return score
@@ -42,7 +37,7 @@ function isSpare(frame){
     return frame[0] + frame[1] == 10
 }
 
-function scoreSpare(frame, nextFrame){
+function scoreSpare(frame, nextFrame) {
   return frame[0] + frame[1] + nextFrame[0]
 }
 
