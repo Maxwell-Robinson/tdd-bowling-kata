@@ -37,10 +37,15 @@ function scoreStrike(frame, nextFrame, thirdFrame) {
   return score
 }
 
+function isSpare(frame){
+    return frame[0] + frame[1] == 10
+}
+
 module.exports = {
 
   scoreFrame: scoreFrame,
   scoreGame: scoreGame,
-  isStrike: isStrike
+  isStrike: isStrike,
+  isSpare: isSpare
 
 }

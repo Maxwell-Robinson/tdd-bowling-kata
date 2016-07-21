@@ -56,3 +56,15 @@ test('checks to see if strike', function(t) {
   t.equals(isStrike1, false, 'checks false positive')
   t.end()
 })
+
+test('checks to see if Spare', function(t) {
+  var frame = [3, 7]
+  var isSpare = game.isSpare(frame)
+  t.equals(isSpare, true)
+  var frame1 = [2, 6]
+  var isSpare1 = game.isSpare(frame1)
+  t.equals(isSpare1, false, 'checks false positive')
+  t.end()
+})
+
+
